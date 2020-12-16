@@ -1,0 +1,31 @@
+<nav class="menu">
+  <ul>
+    <!-- <li><a [routerLink]="['/']">Home</a></li> -->
+    <!-- <li><a [routerLink]="['/signup']">Signup</a></li>
+    <li><a [routerLink]="['/login']">Login</a></li> -->
+    <li><a [routerLink]="['/dashhome']">Home</a></li>
+    <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li><a [routerLink]="['/configure']">Configure</a></li>
+    <li><a [routerLink]="['/expense']">Expense</a></li>
+    <li><a [routerLink]="['/login']">Logout</a></li>
+  </ul>
+</nav>
+<pb-header></pb-header>
+<br>
+<br>
+<button (click)="getbudget()" type="submit">Visualize budgets</button>
+<div *ngIf="userBudget">
+  <div *ngFor="let item of userBudget">{{item.title}}---->{{item.budget}}<br></div>
+</div>
+<h1>Doughnut Chart</h1>
+<p><canvas id="doughnutChart"></canvas></p>
+<h1>Bar Chart</h1>
+<p><canvas id="barChart"></canvas></p>
+<h1>Pie-Chart</h1>
+<p><canvas id="pieChart"></canvas></p>
+<h1>Line Chart</h1>
+<p><canvas id="lineChart"></canvas></p>
+
+<br>
+<br>
+<!-- table display with specific user's titles and budgets -->

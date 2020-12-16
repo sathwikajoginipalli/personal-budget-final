@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <nav class="menu">
+  <ul>
+    <!-- <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['/signup']">Signup</a></li>
+    <li><a (click)="navigateLogin()">Login</a></li> -->
+    <li><a [routerLink]="['/dashhome']">Home</a></li>
+    <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li><a [routerLink]="['/configure']">Configure</a></li>
+    <li><a [routerLink]="['/expense']">Expense</a></li>
+    <li><a [routerLink]="['/login']">Logout</a></li>
+  </ul>
+</nav>
+<pb-header></pb-header>
+  <body>
+
+    <!-- This is an A11y Change- the id attribute-->
+    <main class="container center" id="main">
+      <div class="page-area">
+        <!-- This is a Semantic HTML Change -->
+        <article class="text-box">
+          <h1>Configure</h1>
+          <p>
+            Configure your budgets in Configure Page
+          </p>
+        </article>
+        <!-- This is a Semantic HTML Change -->
+        <article class="text-box">
+          <h1>Dashboard</h1>
+          <p>
+           After you configure you can view your budget.
+          </p>
+        </article>
+        <!-- This is a Semantic HTML Change -->
+        <article class="text-box">
+          <h1>Expense</h1>
+          <p>
+            If you don't use all budget you can enter the amount you spent.
+          </p>
+        </article>
+      </div>
+    </main>
+    
+  </body>
+</html>

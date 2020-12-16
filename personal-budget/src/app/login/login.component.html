@@ -1,0 +1,49 @@
+<nav class="menu">
+  <ul>
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['/signup']">Signup</a></li>
+    <li><a [routerLink]="['/login']">Login</a></li>
+    <!-- <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li><a [routerLink]="['/configure']">Configure</a></li>
+    <li><a [routerLink]="['/expense']">Expense</a></li> -->
+  </ul>
+</nav>
+<pb-header></pb-header>
+<h1>Login here</h1>
+<form [formGroup]="loginForm" (ngsubmit)="loginUser()">
+    <input type="text" name="username" placeholder="username" formControlName="username">
+    <input type="password" name="password" placeholder="password" formControlName="password">
+    <button (click)="loginUser()" type="submit">Submit</button>
+</form>
+<br>
+<br>
+
+<!-- <div class="card">
+  <h4 class="card-header">Login</h4>
+  <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+          <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                  <div *ngIf="f.username.errors.required">Username is required</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <button [disabled]="loading" class="btn btn-primary">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Login
+              </button>
+              <a routerLink="../signup" class="btn btn-link">Signup</a>
+          </div>
+      </form>
+  </div>
+</div> -->
+
