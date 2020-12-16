@@ -9,23 +9,20 @@ import * as Chart from 'chart.js';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  userBudget:any = [];
-  color: any =[];
-  randomColor = Math.floor(Math.random()*16777215).toString(16);
-  public dataSource:any =  {
+  userBudget: any = [];
+  color: any = [];
+  randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  public dataSource: any =  {
     datasets: [
       {
         data: [],
-        backgroundColor:this.color,
-        borderColor:"black",
-        fill:false
+        backgroundColor: this.color,
+        borderColor: 'black',
+        fill: false
       }
     ],
     labels: []
   };
-
-
-
 
   constructor(private http: HttpClient, public data1: DataService) {}
 
@@ -34,10 +31,9 @@ export class DashboardComponent implements OnInit {
   // tslint:disable-next-line: typedef
   getbudget() {
     // tslint:disable-next-line: prefer-const
-    let token = localStorage.getItem('token');
-    this.data1.get_budget(token)
+    this.data1.get_budgetById()
       .subscribe(
-        (response : any) => {
+        (response: any) => {
           // console.log(this.dataSource);
           this.userBudget = response;
           for (let i = 0; i < response.length; i++) {
@@ -55,18 +51,17 @@ export class DashboardComponent implements OnInit {
           console.log(error);
         });
   }
+  // tslint:disable-next-line: typedef
   getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
+    // tslint:disable-next-line: prefer-const
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
   }
 
-
-
-  // https://dev.to/enyichiaagu/how-to-generate-random-hex-color-values-in-javascript-115e
 
 
   // tslint:disable-next-line: typedef
@@ -81,6 +76,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
   createBar(){
     // tslint:disable-next-line: prefer-const
     let ctx: any = document.getElementById('barChart');
@@ -91,6 +87,7 @@ export class DashboardComponent implements OnInit {
     });
 }
 
+// tslint:disable-next-line: typedef
 createLine(){
   // tslint:disable-next-line: prefer-const
   let ctx: any = document.getElementById('lineChart');
@@ -101,6 +98,7 @@ createLine(){
   });
 }
 
+// tslint:disable-next-line: typedef
 createdoughnut() {
   // const ctx = document.getElementById('myChart').getContext('2d');
   // tslint:disable-next-line: prefer-const

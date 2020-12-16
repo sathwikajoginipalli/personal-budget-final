@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -30,13 +30,20 @@ export class SignupComponent implements OnInit {
       password: this.signupForm.value.password,
     };
     this.data1.create_user(signupObject).subscribe(
-      (response) => {
+      (response: any) => {
+        if (response.message){
+          console.log('exists');
+        }
         console.log('inserted value');
         this.signupForm.reset();
         this.router.navigate(['/login']);
       },
       (error) => {
         console.log(error);
+        // tslint:disable-next-line: triple-equals
+        if (error.error.message == 'User exists'){
+          alert('user already exists');
+        }
       }
     );
   }

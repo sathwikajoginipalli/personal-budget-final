@@ -8,10 +8,10 @@ import {HttpHeaders} from '@angular/common/http';
   providedIn: 'root',
 })
 export class DataService {
-  headers : HttpHeaders;
+  headers: HttpHeaders;
   jsonToken: string | null;
   constructor(private http: HttpClient) {
-    this.jsonToken = localStorage.getItem('token');
+    // this.jsonToken = localStorage.getItem('token');
   }
 
   dataObservable: Observable<any> | undefined;
@@ -23,8 +23,8 @@ export class DataService {
   public budget_add = 'http://localhost:8080/budget/add';
   // tslint:disable-next-line: variable-name
   public expense_add = 'http://localhost:8080/expense/add';
-  public budget = 'http://localhost:8080/budget';
-  public expense = 'http://localhost:8080/expense';
+  public budget = 'http://localhost:8080/budget/byId';
+  public expense = 'http://localhost:8080/expense/byId';
   public login = 'http://localhost:8080/userLogin';
   public signup = 'http://localhost:8080/userSignup';
   public newToken = 'http://localhost:8080/generateToken';
@@ -39,18 +39,20 @@ export class DataService {
     }
   }
   // tslint:disable-next-line: typedef
-  get_user(id: any) {
-    return this.http.get(`${this.user}/${id}`);
-  }
-  // tslint:disable-next-line: typedef
-  get_budget(id: any) {
+  get_budgetById() {
+    const headers = new HttpHeaders({
+      token : this.jsonToken
+    });
     // console.log(typeof this.http.get(this.budget + '/' + id))
-    return this.http.get(this.budget + '/' + id);
+    return this.http.get(this.budget,{headers : headers});
   }
 
   // tslint:disable-next-line: typedef
-  get_expense(id: any) {
-    return this.http.get(this.expense + '/' + id);
+  get_expenseById() {
+    const headers = new HttpHeaders({
+      token : this.jsonToken
+    });
+    return this.http.get(this.expense,{headers : headers});
   }
   Budget(): Observable<any> {
     if (this.dataObservable) {
@@ -86,7 +88,10 @@ export class DataService {
   }
   // tslint:disable-next-line: typedef
   create_expense(data: any) {
-    return this.http.post(this.expense_add, data);
+    const headers = new HttpHeaders({
+      token : this.jsonToken
+    });
+    return this.http.post(this.expense_add, data,{headers : headers});
   }
   // tslint:disable-next-line: typedef
   loginUser(data: any) {

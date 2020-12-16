@@ -15,14 +15,14 @@ export class LoginComponent implements OnInit {
     public data1: DataService,
     public formBuilder: FormBuilder,
     private router: Router,
-    private app : AppComponent
+    private app: AppComponent
   ) // public loginForm: FormGroup
   {}
 
   ngOnInit(): void {
     this.configureLoginForm();
     this.app.clearInterval();
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   }
 
   loginUser(): void {
@@ -31,26 +31,14 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password,
     };
     this.data1.loginUser(loginObject).subscribe(
-      (response:any) => {
+      (response: any) => {
         console.log('loginsuccess');
         this.router.navigate(['/dashhome']);
         localStorage.setItem('token', response.token);
         localStorage.setItem('emailId', loginObject.username);
+        this.data1.jsonToken = response.token;
         // console.log(response.token);
         this.app.callPopup();
-        this.loginForm.reset();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-     this.data1.loginUser(loginObject).subscribe(
-      (response:any) => {
-        console.log('loginsuccess');
-        this.router.navigate(['/dashhome']);
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('username', loginObject.username);
-        // console.log(response.token);
         this.loginForm.reset();
       },
       (error) => {

@@ -45,8 +45,7 @@ export class ConfigureComponent implements OnInit {
   // tslint:disable-next-line: typedef
   getbudget() {
     // tslint:disable-next-line: prefer-const
-    let token = localStorage.getItem('token');
-    this.data1.get_budget(token)
+    this.data1.get_budgetById()
       .subscribe(
         response => {
           console.log(response);

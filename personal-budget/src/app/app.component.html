@@ -21,7 +21,7 @@
           <h4 class="modal-title">Token</h4>
         </div>
         <div class="modal-body">
-          <p>Your token expires in <countdown [config]="{leftTime: 20}" *ngIf="runTimer"></countdown></p>
+          <p>Your token expires in 20 secs</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="refreshToken()">Refresh Token</button>
