@@ -13,11 +13,11 @@
 </nav>
 <pb-header></pb-header>
 <h1>Configure Expense</h1>
-<button (click)="getbudget()" type="submit">Get user budgets</button>
+<button (click)="getbudget()" type="submit">Get your budgets</button>
 <div *ngIf="userBudget">
   <div *ngFor="let item of userBudget">{{item.title}}---->{{item.budget}}<br></div>
 </div>
-<button (click)="getexpense()" type="submit">Get user expenses</button>
+<button (click)="getexpense()" type="submit">Get your expenses</button>
 <div *ngIf="userExpense">
   <div *ngFor="let item of userExpense">{{item.title}}---->{{item.expense}}<br></div>
 </div>

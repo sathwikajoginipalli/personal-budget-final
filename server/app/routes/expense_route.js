@@ -6,8 +6,7 @@ var jwt = require("jsonwebtoken");
 
 
 router.post("/add", (req, res) => {
-  // console.log("jaldi jaldi add",req.body);
-  let token=req.body.token;
+  let token=req.headers.token
     // var decode=jwt.verify(token, 'JWT_KEY', function(err, decoded) {
     //     if (err) throw err;
     //     console.log(err);
@@ -18,7 +17,7 @@ router.post("/add", (req, res) => {
       }      
       else {
         decode=vt;  
-        // console.log("decode idi",decode); 
+        // console.log("decoded",decode); 
         const newData = new expenseModel({
           _id: new mongoose.Types.ObjectId(),
           userId: decode.userId,
@@ -47,15 +46,14 @@ router.post("/add", (req, res) => {
 //   });
 // });
 
-router.get("/:id", (req, res) => {
+router.get("/byId", (req, res) => {
   
   // console.log(mongoose.Types.ObjectId.isValid(req.params.id));
   
-  const token=req.params.id;
+  const token=req.headers.token;
   // console.log("get by id",token);
     jwt.verify(token,'JWT_KEY', function (err, decode) {      
       if (err) {
-        // decide what to do with the error...
         console.log("err",err)
       }      
       else {  

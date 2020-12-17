@@ -37,16 +37,7 @@ router.post("/add", (req, res) => {
 
 });
 
-// router.get("/", (req, res) => {
-//   console.log("get");
-//   budgetModel.find().then((data) => {
-//     if (!data) {
-//       return res.status(400).send("no data");
-//     }
-//     return res.json(data);
-//   });
-// });
-router.get("/:id", (req, res) => {
+router.get("/byId", (req, res) => {
   // extract the JWT from the header of the request 
   // verification of the JWT 
   // Extract the value of the user id from the JWT 
@@ -54,7 +45,7 @@ router.get("/:id", (req, res) => {
   
   // console.log(mongoose.Types.ObjectId.isValid(req.params.id));
   
-  const token=req.params.id;
+  const token=req.headers.token;
     jwt.verify(token,'JWT_KEY', function (err, decode) {      
       if (err) {
         // decide what to do with the error...

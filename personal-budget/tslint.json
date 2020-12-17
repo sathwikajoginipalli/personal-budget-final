@@ -148,5 +148,9 @@
       "pb",
       "kebab-case"
     ]
-  }
+  },
+    "globals": {
+      "cy": true
+    }
+
 }

@@ -6,6 +6,7 @@ const app = express();
 const User=require("../server/app/models/users");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const compression = require('compression');
 
 // var corsOptions = {
 //   origin: "http://localhost:8081"
@@ -114,7 +115,7 @@ app.post("/userLogin",(req,res)=>{
                             userId: user[0]._id
                         },
                         'JWT_KEY', {
-                            expiresIn: "1h"
+                            expiresIn: "1H"
                         }
                     );
                     res.status(200).json({
@@ -141,14 +142,14 @@ app.post("/userLogin",(req,res)=>{
 
 app.post("/generateToken",(req,res)=>{
     let token=req.body.token;
-    console.log("generate",req.body)
+    // console.log("generate",req.body)
     jwt.verify(token,'JWT_KEY', function (err, decode) {      
         if (err) {
           // decide what to do with the error...
           console.log("err",err)
         }      
         else {  
-          console.log(decode)
+        //   console.log(decode)
           
             const token = jwt.sign({
                     username:decode.username,

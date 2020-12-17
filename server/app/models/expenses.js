@@ -7,11 +7,6 @@ const expensesSchema = new mongoose.Schema(
       type:String,
       sequence_value: 0,
     },
-    // budgetId: {
-    //   type: Object,
-    //   ref: "Budgets",
-    //   required: true,
-    // },
     userId: {
       type: Object,
       ref: "Users",
@@ -19,7 +14,6 @@ const expensesSchema = new mongoose.Schema(
     },
     title: {
       type: String,
-      trim: true,
       required: true
     },
     expense: {

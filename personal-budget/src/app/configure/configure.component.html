@@ -12,7 +12,7 @@
 </nav>
 <pb-header></pb-header>
 <h1>Configure Budgets</h1>
-<button (click)="getbudget()" type="submit">Get user budgets</button>
+<button (click)="getbudget()" type="submit">Get your budgets</button>
 <div *ngIf="userBudget">
   <div *ngFor="let item of userBudget">{{item.title}}---->{{item.budget}}<br></div>
 </div>

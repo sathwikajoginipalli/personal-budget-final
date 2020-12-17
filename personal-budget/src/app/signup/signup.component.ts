@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
         console.log(error);
         // tslint:disable-next-line: triple-equals
         if (error.error.message == 'User exists'){
-          alert('user already exists');
+          alert('username already exists');
         }
       }
     );
