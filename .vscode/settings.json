@@ -2,5 +2,6 @@
     "cSpell.words": [
         "addbudget",
         "savebudget"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

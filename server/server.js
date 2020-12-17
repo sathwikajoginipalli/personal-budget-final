@@ -14,6 +14,7 @@ const compression = require('compression');
 
 // app.use(cors(corsOptions));
 app.use(cors());
+app.use(compression());
 
 const url= "mongodb://localhost:27017/personal_budget";
 let user_data= require("./app/routes/user_route");
