@@ -11,9 +11,9 @@ import {ChangeDetectorRef} from '@angular/core';
 })
 export class AppComponent {
   int: NodeJS.Timeout;
-token: any;
-runTimer: boolean;
-secondsCount: string;
+  token: any;
+  runTimer: boolean;
+  secondsCount: string;
   logOut: NodeJS.Timeout;
   tokenRefresh: NodeJS.Timeout;
   constructor(

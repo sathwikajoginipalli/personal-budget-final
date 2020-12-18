@@ -9,7 +9,7 @@ import {HttpHeaders} from '@angular/common/http';
 })
 export class DataService {
   headers: HttpHeaders;
-  jsonToken: string | null;
+  jsonToken: string;
   constructor(private http: HttpClient) {
     // this.jsonToken = localStorage.getItem('token');
   }

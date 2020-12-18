@@ -13,7 +13,7 @@ export class ConfigureComponent implements OnInit {
   providerDetailsForm: FormGroup;
   token: string | null;
   // tslint:disable-next-line: ban-types
-  userBudget: Object;
+  userBudget:any = Object;
 
   constructor(private http: HttpClient, public data1: DataService, public formBuilder: FormBuilder) { }
 
