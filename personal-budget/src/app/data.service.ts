@@ -16,18 +16,18 @@ export class DataService {
 
   dataObservable: Observable<any> | undefined;
 
-  public user = 'http://localhost:8080/user';
+  public user = 'http://157.245.118.137:3000/user';
   // tslint:disable-next-line: variable-name
-  public user_add = 'http://localhost:8080/user/add';
+  public user_add = 'http://157.245.118.137:3000/user/add';
   // tslint:disable-next-line: variable-name
-  public budget_add = 'http://localhost:8080/budget/add';
+  public budget_add = 'http://157.245.118.137:3000/budget/add';
   // tslint:disable-next-line: variable-name
-  public expense_add = 'http://localhost:8080/expense/add';
-  public budget = 'http://localhost:8080/budget/byId';
-  public expense = 'http://localhost:8080/expense/byId';
-  public login = 'http://localhost:8080/userLogin';
-  public signup = 'http://localhost:8080/userSignup';
-  public newToken = 'http://localhost:8080/generateToken';
+  public expense_add = 'http://157.245.118.137:3000/expense/add';
+  public budget = 'http://157.245.118.137:3000/budget/byId';
+  public expense = 'http://157.245.118.137:3000/expense/byId';
+  public login = 'http://157.245.118.137:3000/userLogin';
+  public signup = 'http://157.245.118.137:3000/userSignup';
+  public newToken = 'http://157.245.118.137:3000/generateToken';
 
 
   User(): Observable<any> {
